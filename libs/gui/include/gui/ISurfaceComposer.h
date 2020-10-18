@@ -77,6 +77,11 @@ public:
         // case SurfaceFlinger will wake up at (sf vsync offset - debug.sf.early_phase_offset_ns)
         eEarlyWakeup = 0x04
     };
+    
+    enum {
+        eDisplayIdMain = 0,
+        eDisplayIdHdmi = 1
+    };    
 
     enum Rotation {
         eRotateNone = 0,

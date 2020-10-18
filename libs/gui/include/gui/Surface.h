@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2010 The Android Open Source Project
- *
+ * Copyright (C) 2015-2016 Preetam J. D'Souza
+ * Copyright (C) 2016 The Maru OS Project
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -273,6 +274,8 @@ protected:
     virtual void setSurfaceDamage(android_native_rect_t* rects, size_t numRects);
 
 public:
+    virtual int lockWithHandle(ANativeWindow_Buffer* outBuffer,
+              buffer_handle_t* handle, ARect* inOutDirtyBounds);
     virtual int disconnect(int api,
             IGraphicBufferProducer::DisconnectMode mode =
                     IGraphicBufferProducer::DisconnectMode::Api);

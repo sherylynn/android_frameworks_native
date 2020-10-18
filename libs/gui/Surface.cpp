@@ -1,5 +1,7 @@
 /*
  * Copyright (C) 2010 The Android Open Source Project
+ * Copyright (C) 2015-2016 Preetam J. D'Souza
+ * Copyright (C) 2016 The Maru OS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -1892,6 +1894,17 @@ status_t Surface::lock(
             outBuffer->format = backBuffer->format;
             outBuffer->bits   = vaddr;
         }
+    }
+    return err;
+}
+
+status_t Surface::lockWithHandle(ANativeWindow_Buffer* outBuffer,
+        buffer_handle_t* handle, ARect* inOutDirtyBounds)
+{
+    status_t err = lock(outBuffer, inOutDirtyBounds);
+
+    if (err == 0) {
+        *handle = mLockedBuffer->handle;
     }
     return err;
 }
