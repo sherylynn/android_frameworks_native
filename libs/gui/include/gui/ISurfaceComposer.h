@@ -97,6 +97,11 @@ public:
         eExplicitEarlyWakeupEnd = 0x10,
     };
 
+    enum {
+        eDisplayIdMain = 0,
+        eDisplayIdHdmi = 1
+    };    
+
     enum VsyncSource {
         eVsyncSourceApp = 0,
         eVsyncSourceSurfaceFlinger = 1
